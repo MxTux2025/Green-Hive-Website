@@ -2,18 +2,18 @@
 <html>
 
     <head>
-        
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Green Hive</title>
-        
+
         <link rel="stylesheet" href="asset/style.css">
 
         <!-- Google font (poppins)-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link 
-              href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" 
+        <link
+              href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
               rel="stylesheet"
         >
 
@@ -22,17 +22,16 @@
 
     </head>
 
-
     <body>
 
         <header>
-            
+
             <div id="header-container">
 
                 <div id="logo">
                     <img src="asset/image/logo.png" alt="greenhive">
                 </div>
-            
+
                 <div id="share">
                     <img src="asset/image/facebook.png" alt="fb">
                     <img src="asset/image/ig.png" alt="ig">
@@ -49,26 +48,31 @@
             </div>
 
             <nav>
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="index.html"></a>Green Hive</li>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list" id="navList">
+                    <li class="nav-item"><a href="index.html">Green Hive</a></li>
                     <li class="nav-item"><a href="index.html">Beranda</a></li>
-                    <li class="nav-item"><a href="article.html">Berkebun</a></li>
+                    <li class="nav-item"><a href="#">Berkebun</a></li>
                     <li class="nav-item"><a href="index.html#tentang">Tentang Kami</a></li>
                     <li class="nav-item"><a href="contact.html">Kontak</a></li>
                 </ul>
             </nav>
-            
+
         </header>
 
-        
+
             <main class="content-wrapper">
                 <div class="main-container">
                     <div class="featured-card">
                         <h2>Cara Praktis Menyemai Tomat dari Benih hingga Panen</h2>
                         <div class="card-content">
-                            <p>Panduan singkat menyemai tomat untuk pemula. 
+                            <p>Panduan singkat menyemai tomat untuk pemula.
                                 Mulai dari benih, perawatan, hingga panen dengan hasil maksimal!</p>
-                            <a href="/article.html" class="read-more">Baca Selengkapnya</a>
+                            <a href="article.html" class="read-more">Baca Selengkapnya</a>
                         </div>
                     </div>
 
@@ -114,7 +118,7 @@
                             <img src="asset/image/siram.jpg" alt="tips">
                             <p>Siram tanaman di pagi hari antara jam 6-9 untuk hasil optimal. Hindari penyiraman saat matahari terik.</p>
                         </div>
-    
+
                         <div class="sidebar-card">
                             <h3><i class="fas fa-calendar-alt"></i> Kalender Tanam</h3>
                             <img src="asset/image/cabe.jpg" alt="tips">
@@ -129,7 +133,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4 id="tentang">Tentang Kami</h4>
-                    <p>Green Hive adalah tempat berkumpulnya pecinta kebun organik yang percaya bahwa bercocok tanam alami tidak hanya menyehatkan, tapi juga ramah lingkungan. 
+                    <p>Green Hive adalah tempat berkumpulnya pecinta kebun organik yang percaya bahwa bercocok tanam alami tidak hanya menyehatkan, tapi juga ramah lingkungan.
                        Kami hadir untuk berbagi tutorial, tips, dan inspirasi berkebun organik agar siapa pun bisa menanam makanan sehat di rumah, bahkan dengan lahan terbatas.</p>
                 </div>
                 <div class="footer-section">
@@ -151,7 +155,23 @@
                 <p><small><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></small></p>
             </div>
         </footer>
-    
+        <script>
+        const hamburger = document.getElementById('hamburger');
+            const navList = document.getElementById('navList');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navList.classList.toggle('active');
+            });
+
+            // Tutup menu saat link di-klik)
+            document.querySelectorAll('.nav-item a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navList.classList.remove('active');
+                });
+            });
+        </script>
     </body>
 
 
