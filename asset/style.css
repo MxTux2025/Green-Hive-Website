@@ -122,6 +122,135 @@ nav {
 header {
     display: inline;
 }
+
+/*Hamburger*/
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 100;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: #00AA6C;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animasi saat aktif */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ====== Mobile ====== */
+@media (max-width: 768px) {
+    /* ===== HEADER ===== */
+    #header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #logo {
+        position: static;
+        transform: none;
+        order: -1;
+    }
+
+    /* ===== NAVBAR MOBILE ===== */
+    nav {
+        position: relative;   /* override sticky */
+        margin: 0;
+        top: auto;
+    }
+
+    /* Tampilkan tombol hamburger */
+    .hamburger {
+        display: flex;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        margin: 0;
+        z-index: 1000;
+    }
+
+    /* Sembunyikan nav-list secara default */
+    .nav-list {
+        display: none;              /* ← kunci utama */
+        flex-direction: column;     /* ← vertikal */
+        justify-content: flex-start;
+        align-items: stretch;
+        width: 100%;
+        margin: 0;
+        padding: 1rem 0;
+        border-radius: 0;
+        background-color: #00AA6C;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Tampilkan saat aktif */
+    .nav-list.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Setiap item nav */
+    .nav-item {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .nav-item a {
+        display: block;
+        width: 100%;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border-radius: 0;
+        text-align: left;
+    }
+
+    .nav-item a:hover {
+        background-color: #41C9E2;
+        border-radius: 0;
+        padding: 12px 20px;
+    }
+
+    /* Item pertama (brand) */
+    .nav-item:first-child {
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .nav-item:first-child a {
+        padding: 12px 20px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
 /* Content Wrapper */
 main.content-wrapper {
     display: flex;
@@ -412,11 +541,11 @@ form button:hover {
     .content-wrapper {
         flex-direction: column;
     }
-    
+
     .cards-container {
         grid-template-columns: 1fr;
     }
-    
+
     .main-container {
         order: -1;
     }
@@ -427,28 +556,14 @@ form button:hover {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     #logo {
         position: static;
         transform: none;
         order: -1;
     }
-    
-    .nav-list {
-        flex-direction: column;
-        padding: 1rem;
-    }
-    
-    .nav-item {
-        margin: 0.5rem 0;
-    }
-    
-    .nav-item:first-child {
-        margin: 0.5rem 0;
-    }
-    
+
     .footer-content {
         flex-direction: column;
     }
 }
-
